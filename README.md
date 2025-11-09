@@ -1,6 +1,6 @@
 # Parametric-Curve-Solver
 
-This repository contains a complete solution for recovering the unknown parameters **θ**, **M**, and **X** of a nonlinear parametric curve, using only a set of (x, y) data points. The challenge is that the dataset does **not** provide the parameter **t**, which the curve depends on — making this a difficult inverse problem. This project uses geometric reasoning and advanced optimization methods to accurately reconstruct both the hidden parameters and the underlying curve.
+This repository contains a complete solution for recovering the unknown parameters **θ**, **M**, and **X** of a nonlinear parametric curve, using only a set of (x, y) data points. The challenge is that the dataset does **not** provide the parameter **t**, which the curve depends on — making this a difficult inverse problem. In this project, I've uses geometric reasoning and advanced optimization methods to accurately reconstruct both the hidden parameters and the underlying curve.
 
 ---
 
@@ -58,7 +58,7 @@ So the primary task is to recover both:
 
 ## **2. Observing the Rotation Structure**
 
-When we rewrite the equations, we find:
+While rewriting the equations, we find:
 
 \[
 (x', y') = \text{Rotation}_\theta \big( t,\; v(t) \big)
@@ -99,7 +99,7 @@ The model expects:
 v_{\text{expected}} = e^{M|t_{\text{calc}}|}\sin(0.3t_{\text{calc}})
 \]
 
-So we define an error between:
+So I've defined an error between:
 
 - what the geometry gives \(v_{\text{calc}}\)
 - what the parametric model predicts \(v_{\text{expected}}\)
@@ -110,7 +110,7 @@ This becomes the key quantity to minimize.
 
 ## **5. Defining the Optimization Objective**
 
-We minimize:
+I've minimized:
 
 \[
 \sum_i \left( v_{\text{calc},i} - v_{\text{expected},i} \right)^2
@@ -135,7 +135,7 @@ Penalties and bounds ensure the optimizer respects these restrictions.
 
 ## **7. Global + Local Optimization Strategy**
 
-We use a two-stage optimization:
+I've used a two-stage optimization:
 
 1. **Differential Evolution**  
 – finds a good global region  
@@ -162,11 +162,11 @@ This process dramatically improves accuracy by fixing phase misalignment.
 
 ## **9. Final Result**
 
-After several refinement rounds, the solver converges to:
+After several refinement rounds, the solver finally converges to:
 
 1. A very accurate reconstruction  
 2. L1 error ≈ **0.4065**  
-3.  A visually perfect match between model and data  
+3. A visually perfect match between model and data  
 
 This confirms that the recovered parameters correctly describe the dataset.
 
