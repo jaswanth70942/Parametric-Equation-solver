@@ -49,7 +49,7 @@ def L2(params):
     return np.sum((xp-x_data)**2 + (yp-y_data)**2)
 
 
-# 5. BOUNDS
+# 5. Updating Bounds.
 
 bounds = [
     (np.deg2rad(0), np.deg2rad(50)),
