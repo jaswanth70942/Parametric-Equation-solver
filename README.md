@@ -174,7 +174,7 @@ This confirms that the recovered parameters correctly describe the dataset.
 
 # Code
 
-The solve.py file contains the Python script used to perform this optimization.
+The ||** solve.py **|| file contains the Python script used to perform this optimization.
 
 ## **Dependencies**
 1. Python 3x
